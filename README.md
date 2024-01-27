@@ -1,22 +1,68 @@
-MultinationL Retail Data Centralisation 
+# MultinationL Retail Data Centralisation 
 
-Table of Contents, if the README file is long
-The aimd of the project is to extract data from different sources such as pdf files, AWS buckets in different formats; convert data into csv format; clean the data and load data in separate tables in postgres file. 
-During this project, I learned how to write code to extract data from {} using [method], clean data to remove missing values, convert dates in different formats, converts weights provided in different formats, removed columns, 
-standardised coutnry codes. I learned how to load data in local fodlers for analysis usign Excel Viewer in Visual COde Studio. 
-I learned how to use  class methods to extract and upload data withtout hardcoding the access credentials.  
+# Acknowledgements
+Special thanks to my AICore support engineers A., B., H., I., J., K., M., M., V., W., for their invaluable assistance! This journey wouldn't be as epic without their guidance.
 
-Installation instructions
+## Multinational Retail Data Centralisation
+# Overview
+Welcome to the hub of retail data centralization! In this project, we embark on a journey to extract, transform, and harmonize data from various sources. Join us as we navigate the realms of PDFs, AWS buckets, and databases, turning data chaos into structured insights, all powered by PostgreSQL.
 
-Usage instructions
-You need to use python file main.py. Make sure you have specific python 3.12.0, and relevant modules are: pandas, psychorg, dateutil, tabula (for pdf), requests (for API), re (for ..) 
+Throughout this expedition, you'll witness the artistry of code — uncovering secrets from {} using clever methods, eliminating missing values, transforming dates with finesse, and standardizing weights in different formats. 
 
-File structure of the project
-main:
+# Concepts
+- Data Extraction: Unleashing data from every nook and cranny.
+- Data Cleaning: Banishing imperfections and crafting a pristine data landscape.
+- Database Operations: Connecting the dots and orchestrating the database symphony.
+- Orchestrating Classes: The choreography of classes, dancing in harmony.
+- Analyzing data through SQL queries:
+- Converting data types
+- Renaming columns
+- Joining two or three tables
+SQL: 
+Group by clause,
+Aggregate functions,
+subqueries
+Left JOin
+Window Functions such as LAG().
+
+# Knowledge Utilised:
+- Python Programming: The language of wizards and data conjurers.
+- Pandas Library: Our wand for transforming and manipulating data.
+- SQL and Database Management: Navigating the database realms with finesse.
+- Data Cleaning Techniques: The art of refining and purifying data.
+- Data Extraction from PDFs, CSVs, and Databases: Extracting treasures from every format.
+- AWS Buckets, IAM: Navigating the cloud with confidence.
+P- ostgreSQL: Our trusted fortress for data storage.
+
+## File Structure of the Project
+main.py
 database_utils.py
 data_extraction.py
 data_cleaning.py
 db_creds.yaml
 sales_data.session.sql
 
-License information: MIT
+Installation Instructions
+To embark on this adventure, ensure you have Python installed. If you don't, you can download the latest version from python.org.
+
+Python Version
+Make sure you have a compatible Python version; this project is designed for Python 3.12.0. Check your Python version using:
+=====
+
+If you don't have Python installed or need to upgrade, download the latest version from python.org.
+
+# Required Modules
+Make sure you have the required Python modules installed. You can install them using the following command:
+pip install pandas psychorg dateutil tabula requests
+
+Adjust the version of python in the command based on your Python version.
+
+Usage Instructions
+To check this  project, run the main.py file using the following command:
+python main.py
+
+Ensure you have the required Python version and modules installed before running the script.
+
+## License Information
+* MIT
+
