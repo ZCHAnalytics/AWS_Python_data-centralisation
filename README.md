@@ -1,5 +1,42 @@
 # MultinationL Retail Data Centralisation 
+# MultinationL Retail Data Centralisation 
 
+# Acknowledgements
+Special thanks to my AICore support engineers A., B., H., I., J., K., M., M., V., W., for their invaluable assistance! This journey wouldn't be as epic without their guidance.
+
+## Multinational Retail Data Centralisation
+# Overview
+Welcome to the hub of retail data centralization! In this project, we embark on a journey to extract, transform, and harmonize data from various sources. Join us as we navigate the realms of PDFs, AWS buckets, and databases, turning data chaos into structured insights, all powered by PostgreSQL.
+
+Throughout this expedition, you'll witness the artistry of code — uncovering secrets from {} using clever methods, eliminating missing values, transforming dates with finesse, and standardizing weights in different formats. 
+
+# Concepts
+- Data Extraction: Unleashing data from every nook and cranny.
+- Data Cleaning: Banishing imperfections and crafting a pristine data landscape.
+- Database Operations: Connecting the dots and orchestrating the database symphony.
+- Orchestrating Classes: The choreography of classes, dancing in harmony.
+- Analyzing data through SQL queries:
+- Converting data types
+- Renaming columns
+- Joining two or three tables
+SQL: 
+Group by clause,
+Aggregate functions,
+subqueries
+Left JOin
+Window Functions such as LAG().
+
+# Knowledge Utilised:
+- Python Programming: The language of wizards and data conjurers.
+- Pandas Library: Our wand for transforming and manipulating data.
+- SQL and Database Management: Navigating the database realms with finesse.
+- Data Cleaning Techniques: The art of refining and purifying data.
+- Data Extraction from PDFs, CSVs, and Databases: Extracting treasures from every format.
+- AWS Buckets, IAM: Navigating the cloud with confidence.
+P- ostgreSQL: Our trusted fortress for data storage.
+
+## File Structure of the Project
+main.py
 # Acknowledgements
 Special thanks to my AICore support engineers A., B., H., I., J., K., M., M., V., W., for their invaluable assistance! This journey wouldn't be as epic without their guidance.
 
