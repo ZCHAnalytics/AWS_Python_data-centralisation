@@ -4,7 +4,7 @@ Purpose: Orchestrating the data symphony, where classes converge, insights unfol
 Author: Zulfia
 Date: January 2024
 
-# A bid shoutout to the data pioneers: A., B., H., I., J., K., M., M., V., W., conductors of wisdom!
+# A bid shoutout to the data pioneers: A., B., H., I., I., J., K., M., M., V., W., conductors of wisdom!
 """
 
 

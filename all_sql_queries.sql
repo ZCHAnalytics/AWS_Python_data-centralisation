@@ -60,19 +60,40 @@ BEGIN
 END $$;
 SELECT * FROM dim_users;
 
-/* 
 
+/* Task 3: Cast columns into the correct datatype. */
+UPDATE dim_store_details SET 
+  longitude = CASE WHEN longitude = 'N/A' THEN NULL ELSE longitude END,
+  address = CASE WHEN address = 'N/A' THEN NULL ELSE address END,
+  latitude = CASE WHEN latitude = 'N/A' THEN NULL ELSE latitude END;
+DO $$
+DECLARE max_store_code_length INT;
+BEGIN 
+	SELECT MAX(LENGTH(store_code)) INTO max_store_code_length FROM dim_store_details;
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN longitude TYPE FLOAT USING longitude::FLOAT';
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN locality TYPE VARCHAR(255)';
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN store_code TYPE VARCHAR(' || max_store_code_length || ')';
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN staff_numbers TYPE SMALLINT USING staff_numbers::SMALLINT';
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN opening_date TYPE DATE';
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN store_type TYPE VARCHAR(255)';
+	EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN store_type DROP NOT NULL';
+    EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN latitude TYPE FLOAT USING latitude::FLOAT';
+	EXECUTE 'ALTER TABLE dim_store_details
+             ALTER COLUMN country_code TYPE VARCHAR(2)';
+    EXECUTE 'ALTER TABLE dim_store_details
+			ALTER COLUMN continent TYPE VARCHAR(255)';
+END $$;
+SELECT * FROM dim_store_details;
 
-
-
-
-store datatype goes here
-
-
-
-*/
-
-/* Task 4 and 5: Update and Cast columns into the correct datatype. */
+/* Task 4 and 5: Update and cast columns into the correct datatype. */
 
 ALTER TABLE dim_products
 RENAME COLUMN removed TO still_available;
@@ -207,7 +228,7 @@ ADD PRIMARY KEY (user_uuid);
 ALTER TABLE dim_card_details
 ADD PRIMARY KEY (card_number);
 
-/* Task 9: Add foreing keys. */
+/* Task 9: Add foreign keys. */
 
 ALTER TABLE orders_table
 ADD CONSTRAINT fk_orders_user
