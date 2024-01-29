@@ -1,122 +1,182 @@
-# Acknowledgements
-Special thanks to my AICore support engineers A., B., H., I., I., J., K., M., M., V., W., for their invaluable assistance! This journey wouldn't be as epic without their guidance.
+<p align="left">
+    <h1 align="left">Multinational Retail Data Centralisation</h1>
 
-# Multinational Retail Data Centralisation
+<p align="left">
+   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=plastic&logoColor=white" alt="license">
+	<img src="https://img.shields.io/github/last-commit/ZCHAnalytics/multinational-retail-data-centralisation188?style=plastic&color=0080ff" alt="last-commit">
+	<img src="https://img.shields.io/github/languages/top/ZCHAnalytics/multinational-retail-data-centralisation188?style=plastic&color=0080ff" alt="repo-top-language">
+	<img src="https://img.shields.io/github/languages/count/ZCHAnalytics/multinational-retail-data-centralisation188?style=plastic&color=0080ff" alt="repo-language-count">
+   <img src="https://img.shields.io/github/repo-size/ZCHAnalytics/multinational-retail-data-centralisation188?style=plastic">
 
-# Project Overview
-Welcome to the hub of retail data centralisation! In this project, I embark on building a complete data solution for a multinational organisation, covering every step from setting up project environment and connections, as well as data acquisition and analysis. The project involves writing scripts in Python programming language to securely extract large datasets from multiple external sources and utilising the power of Pandas for data cleaning in Visual Studio Code.
+<p>
+<p align="left">
+		<em>Developed with the tools below.</em>
+</p>
+<p align="left">
+	<img src="https://img.shields.io/badge/YAML-CB171E.svg?style=plastic&logo=YAML&logoColor=white" alt="YAML">
+	<img src="https://img.shields.io/badge/PostgreSQL-4169E1.svg?style=plastic&logo=PostgreSQL&logoColor=white" alt="PostgreSQL">
+	<img src="https://img.shields.io/badge/Python-3776AB.svg?style=plastic&logo=Python&logoColor=white" alt="Python">
+	<br>
+   <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=plastic&logo=pandas&logoColor=white" alt="Pandas">
+   <img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=plastic&logo=amazonaws&logoColor=white alt="Amazon AWS">
+</p>
+<hr>
 
-Join me as I navigate the realms of PDFs, AWS buckets and databases, then turning data chaos into structured insights, all powered by PostgreSQL.
 
-# CONTENT
-- Establishing Connections to Data Sources
-- Data Extraction
-- Data Cleaning and Transformation with Pandas
-- Dataset Uploading
-- Creating Database Schema
-- Business Analysis in PGAdmin
-- Sample Business Queries
-- Project Programming Language, Environment and Packages
-- File Structure of the Project
-- Security Considerations
+# 🔗 Content
+> - [📍 Project Snapshot: Two Parts](#overview)
+>-  [🔌 Steps in Establishing Secure Connections to Data Sources](#connect)
+>-  [📥🧹📤 A Closer Look at ETL (Extract, Transform, Load)](#etl)
+> - - [E. Steps in Data Extraction](#extract) 
+> - - [T. Steps in Cleaning and Transformation with Pandas](#transform)
+> - - [L. Steps in Loading to PostgreSQL](#load)
+> - [👁️‍🗨️ Turning Chaos into Business Insights with PostgreSQL](#postgresql)
+> - - [⭐ Steps in Creating Database Schema](#schema)
+> - - [❔ SQL Data Queries for Business Analysis](#sql)
+> - [⚙️ Project Programming Language, Environment and Packages](#env)
+> - [📂 Project File Structure](#files)
+> - [🔐 Security Considerations](#security)
+> - [📄 License](#license)
+> - [👏 Acknowledgments](#kudos)
 
-# Establishing Connections to Data Sources
-- Read credentials from secure storage and return them as dictionaries.
-- Read the credentials dictionary and initialize a SQLAlchemy database engine to connect to AWS RDS database in the cloud.
-- Use an SQLAlchemy database engine to obtain a list of tables in the AWS RDS database. Knowing the available tables helps in selectively choosing specific tables for extraction, avoiding the need to extract all tables.
-- Upload the cleaned tables to a local PostgreSQL database for further analysis.
-- Read a dictionary of API configuration details, including API key and two endpoints, and make secure and authenticated requests to external APIs.
+---
+<a name="overview"></a> 
+# Project Snapshot: Two Parts
+Welcome to the hub of retail data centralisation! 
 
-# Data Extraction
-- Select tables by their names from the available list.
-- Extract users and orders information and convert them into Pandas DataFrames.
-- Extract payment cards information from a PDF document stored in an AWS S3 bucket, using tabula package converting it into a Pandas DataFrame.
-- Extract company stores data through the use of an API, using two GET methods, to obtain the number of stores in the business and an individual store's data given a store number.
-- Use the boto3 package to download and extract the products' information returning a Pandas DataFrame while being logged into the AWS CLI.
-- Extract datetimes information for all individual company sales in a JSON file from an AWS S3 bucket.
+In this project, I embark on building a complete data solution for a multinational organisation, covering every step from setting up a secure project environment and connections, as well as data acquisition and analysis. 
 
-# Data Cleaning and Transformation with Pandas
-- Replace 'NULL' string values with NULL.
-- Check which rows contain only N/A or values in an unintelligible format and removing them.
-- Convert day, months, years, and timestamps from different formats into a consistent format using pandas new method 'format='mixed'.
-- Remove unnecessary letters from country codes and continent names in stores data.
-- Remove non-number characters from columns with numeric values such as card number or staff numbers.
-- Drop columns with junk data.
-- Convert products' weights provided in kg, k, oz, ml, g to a decimal value in kilograms.
+The first part of the project is run from Visual Studio Code and involves developing scripts in Python programming language to securely extract large datasets from multiple external sources and utilising the power of Pandas for data cleaning.
 
-# Dataset Uploading
-- Initiate SQLAlchemy engine to connect to a local PostgreSQL database.
-- Check if the output of the cleaning process produces a valid dataframe (not empty).
-- Upload DataFrames to the PostgreSQL database under specific name.
+The second part is based on PostgreSQL where data chaos is turned into structured business insights 🧑‍💼.
 
-# Creating Database Schema
-- Convert datatypes.
-- Set VARCHAR length to an integer representing the maximum length of the values in specific columns.
-- Create, rename, and merge columns.
-- Change 'NULL' string values in a specific row and a specific column to N/A to avoid errors.
-- Create a new human-readable column for classifying products' weight so they can quickly make decisions on delivery weights.
-- Update the columns in the dimensional tables with a primary key that matches the same column in the orders_table, setting foreign keys.
+<a name="connect"></a>
+# Steps in Establishing Secure Connections
+- Reading credentials from secure storage outside the code with PyYaml and return them as dictionaries.
+- Deploying a SQLAlchemy database engine to connect to AWS RDS database in the cloud, obtaining a list of tables to aid in selective table extrraction.
+- Loading the cleaned tables to a local PostgreSQL database for further analysis.
+- Making secure and authenticated requests to external APIs using a dictionary of API configuration details (API key and endpoints).
 
-# Business Analysis in PGAdmin
-Performing complex SQL data queries to extract business insights using PL/pgSQL (Procedural Language for PostgreSQL). This allows for more complex logic and control structures than standard SQL.
+<a name="etl"></a>
+# A Closer Look at Extraction, Tranform and Load (ETL) process:
 
-- Dynamic SQL generation for altering column types based on calculated values.
-- Window functions and LAG for advanced analytical tasks.
-- Common Table Expression (CTE) with (WITH clause) for defining temporary result sets to simplify complex queries.
-- UUID handling for Universally Unique Identifiers using PostgreSQL's built-in UUID type.
-- Timestamp manipulations using functions like TO_TIMESTAMP.
-- Datatype alteration and Local variables/declarations:
-- Data standardisation by applying consistent formatting, units, or representations.
-- Joining tables to combine data from multiple tables for comprehensive analysis.
-- Aggregate functions(SUM, COUNT, AVG, etc.) to perform statistical calculations on data.
-- Group data using the GROUP BY clause for insights based on specific categories.
-- Apply ordering (ORDER BY) to present results in a meaningful way.
-- Rounding functions (ROUND) for numerical precision.
-- Use casting (CAST) to convert data types.
-- Conditional Logic with CASE and filtering with WHERE to narrow down results based on specific conditions.
-- VARCHAR column Length adjustment on the calculated maximum length to prevent data truncation.
+<a name="extract"></a>
+## 🤏 Steps in Data Extraction
+- Selecting tables by their names from the available list.
+- Extracting users and orders information as Pandas DataFrames.
+- Extracting payment cards information from a PDF document stored in an AWS S3 bucket, using tabula package.
+- Obtaining company stores data through API requests.
+- Downlaoding public information using boto3 package.
+- Extracting datetimes information for all individual company sales in a JSON file from an AWS S3 bucket.
 
-# Sample Business Queries Performed
-1. The Operations team would like to know all countries the company operates in and which country has the most stores. 
-2. The business stakeholders are considering closing some stores before opening more in other locations. They would like to know which locations currently have the most stores.
-3. The company wants to know which months have produced the largest amount of sales.
-4. The company is looking to increase its online sales. They want to know how many products were sold and the amount of sales made for online and offline purchases.
-5. The sales team wants to identify which store types generate the most revenue. They would like to know the total and percentage of sales coming from each of the different store types.
-6. The company stakeholders want assurances that the company has been doing well recently. They want to know which months across all years where it has most sales historically.
-7. The operations team would like to know the overall staff numbers in each location around the world.
-8. The sales team is looking to expand their territory in Germany. They need information about the type of store that is generating the most sales in Germany.
-9. Sales would like to get an accurate metric for how quickly the company is making sales. They want to know the average time taken between each sale grouped by year.
+<a name="transform"></a>
+## 🧹 Steps in Data Cleaning and Transformation with Pandas 
+- Replacing 'NULL' string values with N/A.
+- Removing rows that only contain N/A or unintelligible values.
+- Standardising date and time formats.
+- Cleaning country codes and continents names.
+- Removing non-number chacarcters from numeric columns, where appropriate (e. card number 💳).
+- Dropping columns with junk data.
+- Converting products' weights ⚖️ provided in kg, k, oz, ml, g to a consistent decimal value in kilograms.
 
-   
-# Project Programming Language, Environment and Packages:
-The project run son Python 3.12.0 and leverages python's object-oriented programming (OOP) principles to enhance code organization and maintainability. 
+<a name="load"></a>
+## 🏋️  Steps in Datasets Uploading
+- Initiating an SQLAlchemy engine for local PostgreSQL database connection.
+- Validating if the output of the cleaning process produces a valid dataframe (not empty).
+- Uploading DataFrames to the PostgreSQL database under specific name.
 
-It utilises the following Python packages:
-- PyYAML: allows to work with YAML files, enabling the secure storage of credentials outside of hard code.
-- SQLAlchemy: a SQL toolkit and Object-Relational Mapping (ORM) library for Python. It enabled secure connection to the AWS RDS database in the cloud for data extraction and to local database for uploading cleand data. 
-- Pandas: a powerful data manipulation and analysis library that helped convert data structures into the form of DataFrame for efficient data manipulation with integrated indexing, weights, date conversion, removing unnecessary values.
-- Boto3: the Amazon Web Services (AWS) Software Development Kit (SDK) for Python that helps extract project data from AWS S3 buckets.
-- re (Regular Expressions): provides regular expression matching operations in Python. It was used for pattern matching with strings and allows  to search, match, and manipulate values based on patterns, such as card numbers.
-- Requests: a popular HTTP library for making HTTP requests in Python. In the project, it sent requests to external web addresses and if the response of the status code was 200(oK), it extracted data. 
-- Tabula: a Python library for extracting tables from PDFs into pandas DataFrames. It simplified the process of extracting structured data from PDF documents in S3 bucket.
+<a name="postgresql"></a>
+# Turning Chaos into Business Insights with PostgreSQL
 
-Project Environments
-Integrated Development Environment (IDE): Visual Studio Code is used for its versatility and comprehensive list of extensions. Additionally, this project used extensions such as Excel File Viewer, SQLTools, and TODO tree for enhanced functionality and productivity.
-The project is set up within a Conda environment, specifically using version 23.11.0, for greater control over dependencies.
+<a name="schema"></a>
+## ⭐  Steps in Creating Database Schema 
+- Converting datatypes and setting VARCHAR length to an integer representing the maximum length of the values in specific columns.
+- Creating, renaming, and merging columns.
+- Handling 'NULL' values for a specific store categories and adding a new human-readable column for product weight classification for Delivery Team.
+- Updating dimensional table columns primary and foreign keys.
 
+<a name="sql"></a>
+## SQL Data Queries for Business Analysis
+Performing complex SQL data queries to extract business insights using PL/pgSQL (Procedural Language for PostgreSQL). 
+
+- Dynamic SQL generation for altering column types.
+- Using Window functions, LAG and CTE for advanced analytical tasks.
+- handling UUID , timestamp manipulations and datatypealterations. :
+- Data standardisation, joining tables, aggregate functions(SUM, COUNT, AVG, etc.) for statistical calculations.
+- Grouping data, applying ordering, rounding, casting and conditional Logic for precise analysis.
+
+<a name="queries"></a>
+### Business Queries Performed
+1. 🗺️ The Operations team would like to know all countries the company operates in and which country has the most stores. 
+2. 🏤 The business stakeholders are considering closing some stores before opening more in other locations. They would like to know which locations currently have the most stores.
+3.📆  The company wants to know which months have produced the largest amount of sales.
+4. 💻 The company is looking to increase its online sales. They want to know how many products were sold and the amount of sales made for online and offline purchases.
+5. 🛒 The sales team wants to identify which store types generate the most revenue. They would like to know the total and percentage of sales coming from each of the different store types.
+6. 📊 The company stakeholders want assurances that the company has been doing well recently. They want to know which months across all years where it has most sales historically.
+7.  🚶 The operations team would like to know the overall staff numbers in each location around the world.
+8. 🇩🇪 The sales team is looking to expand their territory in Germany. They need information about the type of store that is generating the most sales in Germany.
+9. 🕒 Sales would like to get an accurate metric for how quickly the company is making sales. They want to know the average time taken between each sale grouped by year.
+
+<a name="env"></a>   
+# Project Programming Language, Environment and Packages
+The project starts on Python 3.12.0, employing object-oriented programming (OOP) principles. Key Python packages include:
+- PyYAML: facilitating secure storage of credentials outside of hard code.
+- SQLAlchemy: a SQL toolkit and ORM library for secure databse connections. 
+- Pandas: data manipulation and analysis library used for efficient data manipulation.
+- Boto3: the AWS SDK that helps extract project data from AWS S3 buckets.
+- Regular Expressions (re): Applied for pattern matchingm and was particularly useful for manipulate card number values.
+- Requests: a popular HTTP library for making secure HTTP requests. 
+- Tabula: a Python library for extracting tables from PDFs into pandas DataFrames. 
+
+## Project Environments
+IDE: Visual Studio Code provided versatility with the additional functionality of extensions Excel File Viewer, SQLTools, and TODO tree.
+Conda: Version 23.11.0 was employed for better dependencies control.
+
+<a name="files"></a>
 # File Structure of the Project
 1. The `data_extraction.py` - this script creates a class named DatabaseExtractor that works as a utility class. It contains methods to extract data from RDS tables, PDF, and JSON, and CSV files in S3 buckets. 
 2. The `database_utils.py` - this script creates a class named DatabaseConnector that is used to connect with and upload data to the database.
 3. The `data_cleaning.py` - its `DataCleaning` class is designed to encapsulate method for cleaning DataFrames from separate sources. 
 4. The `main.py` script is structured around classes and methods, aligning with OOP principles. It orchestrates the overall data processing workflow by calling functions from other scripts.
-5. YAML files - these files contain connection credentials.
-6. `.gitignore` - this folder contains YAML files with credentials to prevent the sharing of sensitive information.
-7. Images of SQL queries and their output.
-   
+5. The `.gitignore` - this folder lists credentials files (in YAML format) to prevent the sharing of sensitive information.
+7. The `all_sql_queries.sql` - this file contains scripts for all SQL operations and queries.
+8. The `print_screen_images` - a folder housing images of SQL queries text and their outputs for easy reference.
+
+<a name="security"></a>
 # Security Considerations
-- Store Credentials Securely: External and internal credentials to establish connections to AWS RDS, S3 buckets and POstgreSQL database are stored in separate YAML files, keeping them outside of the scripts. Not hardcoding credentials into the script adds an extra layer of security.
-- Use SQLAlchemy Engines: Using SQLAlchemy engines for database connections provides a high-level API and handles many security aspects.
-- Gitignore: Listing credentials in .gitignore to prevent them from being inadvertently shared when pushing code to version control.
-- Requests Package: The use of this Python package for HTTP requests handles many security considerations by default, such as handling redirects and verifying SSL/TLS.
-- File Handling with with Statement:  Opening and closing credential files with a with statement ensures that resources are properly released, and the files are closed after use.
-- HTTPS Usage: use of HTTPS instead of HTTP for secure communication with external APIs and web services.
+- Store Credentials Securely: Credentials are stored in separate YAML files, outside of the scripts, preventing hardcoding.
+- SQLAlchemy Engines: Using SQLAlchemy engines provides a high-level API, enhacing security.
+- Gitignore: Prevents credentials from being inadvertently shared when pushing code to version control.
+- Requests Package: Handles many security considerations by default.
+- File Handling with (WITH) Statement: Ensures proper resources release and files closure.
+- HTTPS Usage: Ensures secure communication with external APIs.
+
+<a name="license"></a>
+# License: MIT
+
+<a name="kudos"></a>
+# Acknowledgements
+Special thanks to my AICore support engineers A., B., H., I., I., J., K., M., M., V., W., for their invaluable assistance and latest hacks! This journey wouldn't be as epic without their guidance. 🏆 🏅
+
+This journey also owes its success generous knowldedge-sharing by contributors to these various platforms:
+- stackoverflow
+- atlassian
+- reddit
+- jetbrains
+- codeacademy
+- dba.stackexchange
+- realpython
+- nbshare.io
+- capitalone
+- saturncloud.io
+- hevodata.com
+- sentry.io
+- restapp.io
+- appsloveworld.com
+- postindustria.com
+- geeksforgeeks
+- data-flair.training
+... and many others
+  
+.... And lastly, the wegetanystock website for helping verify product prices for Nescafe Dolce Gusto and pet food where units of measurements were missing! 
+   
