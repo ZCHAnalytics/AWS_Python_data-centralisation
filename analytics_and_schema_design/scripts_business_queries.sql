@@ -27,7 +27,7 @@ JOIN
 GROUP BY dim_date_times.month
 ORDER BY total_sales DESC;
 
-/* TASK 4: Query the databse to find online sales vs offline.
+/* TASK 4: Query the database to find online sales vs offline.
 Calculate how many products were sold and the amount of sales made for online and offline purchases.*/
 
 SELECT 
@@ -45,7 +45,7 @@ GROUP BY location
 ORDER BY number_of_sales, product_quantity_count; 
 
 
-/* Task 5: Query databse to find total and percentage of sales coming from each of the different store types. */
+/* Task 5: Query database to find total and percentage of sales coming from each of the different store types. */
 SELECT store_type, 
     ROUND(CAST(SUM(orders_table.product_quantity * dim_products.product_price) AS NUMERIC), 2) AS total_sales,
 	ROUND(CAST(COUNT(orders_table.date_uuid) AS NUMERIC)/ 120123 * 100, 2) AS "percentage_total(%)"
@@ -58,7 +58,7 @@ GROUP BY store_type
 ORDER BY "percentage_total(%)" DESC, total_sales, store_type;
 
 
-/* Task 6: Query the databse to find which months in which years have had the most sales historically. */
+/* Task 6: Query the database to find which months in which years have had the most sales historically. */
 SELECT 
 	ROUND(CAST(SUM(orders_table.product_quantity * dim_products.product_price) AS NUMERIC), 2) AS total_sales,
 	"year",
