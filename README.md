@@ -17,8 +17,9 @@
 	<img src="https://img.shields.io/badge/PostgreSQL-4169E1.svg?style=plastic&logo=PostgreSQL&logoColor=white" alt="PostgreSQL">
 	<img src="https://img.shields.io/badge/Python-3776AB.svg?style=plastic&logo=Python&logoColor=white" alt="Python">
 	<br>
-   <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=plastic&logo=pandas&logoColor=white" alt="Pandas">
-   <img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=plastic&logo=amazonaws&logoColor=white alt="Amazon AWS">
+	<img src="https://img.shields.io/badge/pandas-%23150458.svg?style=plastic&logo=pandas&logoColor=white" alt="Pandas">
+	<img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=plastic&logo=amazonaws&logoColor=white alt="Amazon AWS">
+	<img src="https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=plastic&logo=jupyter&logoColor=white alt="Jupyter">
 </p>
 <hr>
 
