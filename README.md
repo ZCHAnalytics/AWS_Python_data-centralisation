@@ -115,8 +115,8 @@ Performing complex SQL data queries to extract business insights using PL/pgSQL 
 5. 🛒 The sales team wants to identify which store types generate the most revenue. They would like to know the total and percentage of sales coming from each of the different store types.
 6. 📊 The company stakeholders want assurances that the company has been doing well recently. They want to know which months across all years where it has most sales historically.
 7.  🚶 The operations team would like to know the overall staff numbers in each location around the world.
-8. 🇩🇪 The sales team is looking to expand their territory in Germany. They need information about the type of store that is generating the most sales in Germany.
-9. 🕒 Sales would like to get an accurate metric for how quickly the company is making sales. They want to know the average time taken between each sale grouped by year.
+9. ![image](https://github.com/ZCHAnalytics/multinational-retail-data-centralisation188/assets/146954022/d59976b1-e31a-47de-9429-16d1e0e7d92d) The sales team is looking to expand their territory in Germany. They need information about the type of store that is generating the most sales in Germany.
+10. 🕒 Sales would like to get an accurate metric for how quickly the company is making sales. They want to know the average time taken between each sale grouped by year.
 
 <a name="env"></a>   
 # Project Programming Language, Environment and Packages
@@ -134,14 +134,22 @@ IDE: Visual Studio Code provided versatility with the additional functionality o
 Conda: Version 23.11.0 was employed for better dependencies control.
 
 <a name="files"></a>
+
 # File Structure of the Project
-1. The `data_extraction.py` - this script creates a class named DatabaseExtractor that works as a utility class. It contains methods to extract data from RDS tables, PDF, and JSON, and CSV files in S3 buckets. 
-2. The `database_utils.py` - this script creates a class named DatabaseConnector that is used to connect with and upload data to the database.
-3. The `data_cleaning.py` - its `DataCleaning` class is designed to encapsulate method for cleaning DataFrames from separate sources. 
-4. The `main.py` script is structured around classes and methods, aligning with OOP principles. It orchestrates the overall data processing workflow by calling functions from other scripts.
-5. The `.gitignore` - this folder lists credentials files (in YAML format) to prevent the sharing of sensitive information.
-7. The `all_sql_queries.sql` - this file contains scripts for all SQL operations and queries.
-8. The `print_screen_images` - a folder housing images of SQL queries text and their outputs for easy reference.
+
+| **Folder/File**                       | **Description**                                                                                                                                                                                                                            |
+|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Data Management and ETL Process**   |                                                                                                                                                                                                                                            |
+| `data_extraction.py`          	   | This script creates a class named DatabaseExtractor, serving as a utility class. It contains methods to extract data from RDS tables, PDFs, JSON, and CSV files in S3 buckets.                                                              |
+| `database_utils.py`             	  | This script establishes a class named DatabaseConnector, used for connecting to and uploading data to the database.                                                                                                                       |
+| `data_cleaning.py`                	| The `DataCleaning` class within this script is designed to encapsulate methods for cleaning DataFrames from various sources.                                                                                                                |
+| `main.py`                         	| Structured around classes and methods, aligning with OOP principles, this script orchestrates the overall data processing workflow by calling functions from other scripts.                                                                 |
+| **Database Design and SQL Queries** 	   |                                                                                                                                                                                                                                            |
+| `scripts_star_schema_design.sql`	 | Responsible for creating a relational database.                                                                                                                                                                                            |
+| `scripts_business_queries.sql`    	| This set of scripts generates insights for company departments and stakeholders.                                                                                                                  |
+| `database_creation_visuals.ipynb` 	| A Jupyter Notebook with step by step design process and visual outputs from PGAdmin.                                                                                                                                         |
+| `business_queries_visuals.ipynb`  	| Another Jupyter Notebook containing business queries in SQL with visuals from PGAdmin.                                                                                                                                     |
+| `.gitignore`                        	| This file lists credential files (in YAML format) to prevent the sharing of sensitive information.                                                                                                                                  |
 
 <a name="security"></a>
 # Security Considerations
