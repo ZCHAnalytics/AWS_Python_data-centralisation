@@ -67,7 +67,7 @@ The second part is based on PostgreSQL where data chaos is turned into structure
 - Extracting users and orders information as Pandas DataFrames.
 - Extracting payment cards information from a PDF document stored in an AWS S3 bucket, using tabula package.
 - Obtaining company stores data through API requests.
-- Downlaoding public information using boto3 package.
+- Downloading public information using boto3 package.
 - Extracting datetimes information for all individual company sales in a JSON file from an AWS S3 bucket.
 
 <a name="transform"></a>
@@ -84,7 +84,7 @@ The second part is based on PostgreSQL where data chaos is turned into structure
 ## 🏋️  Steps in Datasets Uploading
 - Initiating an SQLAlchemy engine for local PostgreSQL database connection.
 - Validating if the output of the cleaning process produces a valid dataframe (not empty).
-- Uploading DataFrames to the PostgreSQL database under specific name.
+- Uploading DataFrames to the PostgreSQL database under specific names.
 
 <a name="postgresql"></a>
 # Turning Chaos into Business Insights with PostgreSQL
@@ -94,7 +94,7 @@ The second part is based on PostgreSQL where data chaos is turned into structure
 - Converting datatypes and setting VARCHAR length to an integer representing the maximum length of the values in specific columns.
 - Creating, renaming, and merging columns.
 - Handling 'NULL' values for a specific store categories and adding a new human-readable column for product weight classification for Delivery Team.
-- Updating dimensional table columns primary and foreign keys.
+- Updating tables' primary and foreign keys.
 
 <a name="sql"></a>
 ## SQL Data Queries for Business Analysis
@@ -102,9 +102,9 @@ Performing complex SQL data queries to extract business insights using PL/pgSQL 
 
 - Dynamic SQL generation for altering column types.
 - Using Window functions, LAG and CTE for advanced analytical tasks.
-- handling UUID , timestamp manipulations and datatypealterations. :
+- Handling UUID, timestamp manipulations and datatype alterations.
 - Data standardisation, joining tables, aggregate functions(SUM, COUNT, AVG, etc.) for statistical calculations.
-- Grouping data, applying ordering, rounding, casting and conditional Logic for precise analysis.
+- Grouping data, applying ordering, rounding, casting and conditional logic for precise analysis.
 
 <a name="queries"></a>
 ### Business Queries Performed
