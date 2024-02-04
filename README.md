@@ -53,8 +53,8 @@ The second part is based on PostgreSQL where data chaos is turned into structure
 
 <a name="connect"></a>
 # Steps in Establishing Secure Connections
-- Reading credentials from secure storage outside the code with PyYaml and return them as dictionaries.
-- Deploying a SQLAlchemy database engine to connect to AWS RDS database in the cloud, obtaining a list of tables to aid in selective table extrraction.
+- Reading credentials from secure storage outside the code with PyYaml and returning them as dictionaries.
+- Deploying a SQLAlchemy database engine to connect to AWS RDS database in the cloud, obtaining a list of tables to aid in selective table extraction.
 - Loading the cleaned tables to a local PostgreSQL database for further analysis.
 - Making secure and authenticated requests to external APIs using a dictionary of API configuration details (API key and endpoints).
 
@@ -76,7 +76,7 @@ The second part is based on PostgreSQL where data chaos is turned into structure
 - Removing rows that only contain N/A or unintelligible values.
 - Standardising date and time formats.
 - Cleaning country codes and continents names.
-- Removing non-number chacarcters from numeric columns, where appropriate (e. card number 💳).
+- Removing non-number characters from numeric columns, where appropriate (e. card number 💳).
 - Dropping columns with junk data.
 - Converting products' weights ⚖️ provided in kg, k, oz, ml, g to a consistent decimal value in kilograms.
 
@@ -98,8 +98,7 @@ The second part is based on PostgreSQL where data chaos is turned into structure
 
 <a name="sql"></a>
 ## SQL Data Queries for Business Analysis
-Performing complex SQL data queries to extract business insights using PL/pgSQL (Procedural Language for PostgreSQL). 
-
+Performing complex SQL data queries to extract business insights. 
 - Dynamic SQL generation for altering column types.
 - Using Window functions, LAG and CTE for advanced analytical tasks.
 - Handling UUID, timestamp manipulations and datatype alterations.
@@ -122,10 +121,10 @@ Performing complex SQL data queries to extract business insights using PL/pgSQL 
 # Project Programming Language, Environment and Packages
 The project starts on Python 3.12.0, employing object-oriented programming (OOP) principles. Key Python packages include:
 - PyYAML: facilitating secure storage of credentials outside of hard code.
-- SQLAlchemy: a SQL toolkit and ORM library for secure databse connections. 
+- SQLAlchemy: a SQL toolkit and ORM library for secure database connections. 
 - Pandas: data manipulation and analysis library used for efficient data manipulation.
 - Boto3: the AWS SDK that helps extract project data from AWS S3 buckets.
-- Regular Expressions (re): Applied for pattern matchingm and was particularly useful for manipulate card number values.
+- Regular Expressions (re): Applied for pattern matching and was particularly useful for standardising card number values.
 - Requests: a popular HTTP library for making secure HTTP requests. 
 - Tabula: a Python library for extracting tables from PDFs into pandas DataFrames. 
 
@@ -137,9 +136,9 @@ Conda: Version 23.11.0 was employed for better dependencies control.
 
 # File Structure of the Project
 
-| **Folder/File**                       | **Description**                                                                                                                                                                                                                            |
-|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Data Management and ETL Process**   |                                                                                                                                                                                                                                            |
+| **Folder/File**                       | **Description**                                                       |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| **Data Management and ETL Process**   |                                                                                                                                                                                                                                      |
 | `data_extraction.py`          	   | This script creates a class named DatabaseExtractor, serving as a utility class. It contains methods to extract data from RDS tables, PDFs, JSON, and CSV files in S3 buckets.                                                              |
 | `database_utils.py`             	  | This script establishes a class named DatabaseConnector, used for connecting to and uploading data to the database.                                                                                                                       |
 | `data_cleaning.py`                	| The `DataCleaning` class within this script is designed to encapsulate methods for cleaning DataFrames from various sources.                                                                                                                |
