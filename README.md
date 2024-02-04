@@ -110,7 +110,7 @@ Performing complex SQL data queries to extract business insights using PL/pgSQL 
 ### Business Queries Performed
 1. 🗺️ The Operations team would like to know all countries the company operates in and which country has the most stores. 
 2. 🏤 The business stakeholders are considering closing some stores before opening more in other locations. They would like to know which locations currently have the most stores.
-3.📆  The company wants to know which months have produced the largest amount of sales.
+3. 📆  The company wants to know which months have produced the largest amount of sales.
 4. 💻 The company is looking to increase its online sales. They want to know how many products were sold and the amount of sales made for online and offline purchases.
 5. 🛒 The sales team wants to identify which store types generate the most revenue. They would like to know the total and percentage of sales coming from each of the different store types.
 6. 📊 The company stakeholders want assurances that the company has been doing well recently. They want to know which months across all years where it has most sales historically.
